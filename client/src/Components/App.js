@@ -8,23 +8,16 @@ import PlantList from './PlantList/index';
 import SinglePlant from './SinglePlant/index';
 
 // router stuff
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
   return (
     <Router>
       <Navbar />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/plants">
-          <PlantList />
-        </Route>
-        <Route path="/notifications">
-          <Notifications />
-        </Route>
-      </Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/plants" component={PlantList} />
+      <Route path="/plant/:id" component={SinglePlant} />
+      <Route path="/notifications" component={Notifications} />
     </Router>
   );
 }
